@@ -35,7 +35,7 @@
                 <!--绑定消息创建控制器 MessageCreatorCtrl-->
                 <form class="message-creator" ng-controller="MessageCreatorCtrl">
                     <div class="form-group">
-                        <textarea required class="form-control message-input" ng-model="newMessage" ctrl-enter-break-line="createMessage()" placeholder="Ctrl+Enter to quick send"></textarea>
+                        <textarea required class="form-control message-input" ng-model="newMessage" ctrl-enter-break-line="createMessages()" placeholder="Ctrl+Enter to quick send"></textarea>
                     </div>
                 </form>
             </div>
@@ -43,6 +43,12 @@
         <!--绑定控制器 E-->
     </div>
 </div>
-<script type="text/javascript" src="js/technode.js"></script>
+<!--自定义程序 S-->
+<script type="text/javascript" src="technode.js"></script>
+<script type="text/javascript" src="directives/autoScrollToBottom.js"></script>
+<script type="text/javascript" src="directives/ctrlEnterBreakLine.js"></script>
+<script type="text/javascript" src="controllers/roomCtrl.js"></script>
+<script type="text/javascript" src="controllers/messageCreator.js"></script>
+<!--自定义程序 E-->
 </body>
 </html>
