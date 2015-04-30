@@ -1,7 +1,7 @@
 /**
  * Created by new on 2015/4/29.
  */
-var nodeApp = angular.module('techNodeApp', []);
+var nodeApp = angular.module('techNodeApp', ['ng-route']);
 
 //创建socket服务
 nodeApp.factory('socket',function($rootScope){
