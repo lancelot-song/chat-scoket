@@ -2,6 +2,7 @@
 <html ng-app="techNodeApp">
 <head>
     <meta charset="UTF-8">
+    <base href="/">
     <title>TechNode</title>
     <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="style/room.css">
@@ -18,6 +19,16 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">TechNode</a>
         </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right" ng-show="me">
+                <li>
+                    <img ng-src="{{me.avatarUrl}}" title="{{me.name}}" class="img-rounded"/>
+                </li>
+                <li>
+                    <a href="" ng-click="logout()">Log out</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
 <div class="container" style="margin-top:100px;">
@@ -26,6 +37,7 @@
 </div>
 <!--自定义程序 S-->
 <script type="text/javascript" src="technode.js"></script>
+<script type="text/javascript" src="route.js"></script>
 <script type="text/javascript" src="directives/autoScrollToBottom.js"></script>
 <script type="text/javascript" src="directives/ctrlEnterBreakLine.js"></script>
 <script type="text/javascript" src="controllers/roomCtrl.js"></script>

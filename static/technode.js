@@ -1,9 +1,34 @@
 /**
  * Created by new on 2015/4/29.
  */
-var nodeApp = angular.module('techNodeApp', ['ng-route']);
+var nodeApp = angular.module('techNodeApp', ['ngRoute']);
 
-//创建socket服务
+//注入启动模块，ajax查询用户信息，跳转相应的URL
+nodeApp.run(function($window,$rootScope,$http,$location){
+    $http({
+        url : '/api/vlidate',
+        method : 'GET'
+    }).success(function(user){
+        $rootScope.me = user;
+        $location.path('/');
+    }).error(function(){
+        $location.path('/login');
+    })
+    $rootScope.logout = function(){
+        $http({
+            url: '/ajax/logout',
+            method : 'get'
+        }).success(function(user){
+            $rootScope.me = null;
+            $location.path('/login')
+        })
+    }
+    $rootScope.$on('login',function(evt,me){
+        $rootScope.me = me;
+    })
+});
+
+//创建本地socket服务
 nodeApp.factory('socket',function($rootScope){
     //在这里把nodejs的socket.io拿来
     var socket = io();

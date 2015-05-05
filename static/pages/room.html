@@ -1,13 +1,14 @@
 <div class="col-md-12">
     <!--绑定房间控制器RoomCtrl S-->
-    <div class="panel panel-default room" ng-controller="RoomCtrl">
+    <div class="panel panel-default room">
         <div class="panel-heading room-header">TechNode</div>
         <div class="panel-body room-content">
             <!-- auto-scroll-to-bottom 出现滚动条时，自动滚动至底部 -->
             <div class="list-group messages" auto-scroll-to-bottom>
                 <!--循环app.js中的msg数组并通过track by $index避免循环时遇到重复消息跳过-->
                 <div class="list-group-item message" ng-repeat="message in msg track by $index">
-                    某某: {{message}}
+                    <img ng-src="{{message.creator.avatarUrl}}" title="{{message.creator.name}}" class="img-rounded"/>
+                    {{message.creator.name}}: {{message.message}}
                 </div>
             </div>
             <!--绑定消息创建控制器 MessageCreatorCtrl-->
